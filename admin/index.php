@@ -1,4 +1,5 @@
 <?php
 
-echo '<a href="users.php">Список пользователей</a><br>';
-echo '<a href="orders.php">Список заказов</a>';
+require_once '../src/init.php';
+
+echo $twig->render('admin/index.twig', []);

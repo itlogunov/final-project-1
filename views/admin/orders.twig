@@ -1,0 +1,37 @@
+{% if orders is empty %}
+    <h1>Заказов нет</h1>
+{% else %}
+    <h1>Список заказов</h1>
+    <table>
+        <tr>
+            <td>order id</td>
+            <td>email</td>
+            <td>name</td>
+            <td>phone</td>
+            <td>street</td>
+            <td>home</td>
+            <td>part</td>
+            <td>appt</td>
+            <td>floor</td>
+            <td>comment</td>
+            <td>payment</td>
+            <td>callback</td>
+        </tr>
+        {% for order in orders %}
+            <tr>
+                <td>{{ order.id }}</td>
+                <td>{{ order.email }}</td>
+                <td>{{ order.name }}</td>
+                <td>{{ order.phone }}</td>
+                <td>{{ order.street }}</td>
+                <td>{{ order.home }}</td>
+                <td>{{ order.part }}</td>
+                <td>{{ order.appt }}</td>
+                <td>{{ order.floor }}</td>
+                <td>{{ order.comment }}</td>
+                <td>{{ order.payment }}</td>
+                <td>{{ order.callback }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}

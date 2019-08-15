@@ -1,0 +1,21 @@
+{% if users is empty %}
+    <h1>Пользователей нет</h1>
+{% else %}
+    <h1>Список пользователей</h1>
+    <table>
+        <tr>
+            <td>id</td>
+            <td>email</td>
+            <td>name</td>
+            <td>phone</td>
+        </tr>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.phone }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}

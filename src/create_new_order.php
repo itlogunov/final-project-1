@@ -14,8 +14,8 @@ $callback = (!empty($_POST['callback'])) ? 1 : false;
 
 $arrErrors = [];
 if ($name && $phone && $email && $street && $home) {
-    require 'functions.php';
-    require_once '../vendor/autoload.php';
+
+    require_once 'init.php';
 
     if (!$arrUser = getUserByEmail($email)) {
         if (!$arrUser = registerUser($email, $name, $phone)) {
