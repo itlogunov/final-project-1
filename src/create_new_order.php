@@ -15,6 +15,7 @@ $callback = (!empty($_POST['callback'])) ? 1 : false;
 $arrErrors = [];
 if ($name && $phone && $email && $street && $home) {
     require 'functions.php';
+    require_once '../vendor/autoload.php';
 
     if (!$arrUser = getUserByEmail($email)) {
         if (!$arrUser = registerUser($email, $name, $phone)) {
@@ -48,7 +49,7 @@ if ($name && $phone && $email && $street && $home) {
                 $message .= 'Спасибо! Это уже ' . $ordersCount . ' заказ';
             }
 
-            $send = mail($email, 'Заказ №' . $orderId, $message);
+            sendMail($email, 'Заказ №' . $orderId, $message);
             if (file_exists('../mails/')) {
                 file_put_contents('../mails/' . str_replace(' ', '_', date('d.m.Y H:i:s') . '.log'), $message);
             }
